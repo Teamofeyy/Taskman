@@ -15,7 +15,7 @@ case $1 in
       sed -i '' "${2}s/\[ \]/[x]/" "$TASKS_FILE"
       echo "Marked task $2 as completed"
     else
-      echo "Invalid task number"
+      echo "Error: Invalid input"
     fi
     ;;
   remove)
@@ -23,7 +23,7 @@ case $1 in
       sed -i '' "${2}d" "$TASKS_FILE"
       echo "Removed task $2"
     else
-      echo "Invalid task number"
+      echo "Error: Invalid input"
     fi
     ;;
 esac
