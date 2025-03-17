@@ -1,7 +1,6 @@
 #!/bin/bash
 TASKS_FILE="${HOME}/.taskman_tasks"
 
-<<<<<<< HEAD
 case $1 in
   add)
     echo "[ ] ${@:2}" >> "$TASKS_FILE"
@@ -11,14 +10,20 @@ case $1 in
     printf "Current tasks:\n"
     cat -n "$TASKS_FILE"
     ;;
+  update)
+    if [[ "$2" =~ ^[0-9]+$ ]]; then
+      sed -i '' "${2}s/\[ \]/[x]/" "$TASKS_FILE"
+      echo "Marked task $2 as completed"
+    else
+      echo "Invalid task number"
+    fi
+    ;;
+  remove)
+    if [[ "$2" =~ ^[0-9]+$ ]]; then
+      sed -i '' "${2}d" "$TASKS_FILE"
+      echo "Removed task $2"
+    else
+      echo "Invalid task number"
+    fi
+    ;;
 esac
-=======
-update)
-  if [[ "$2" =~ ^[0-9]+$ ]]; then
-    sed -i '' "${2}s/\[ \]/[x]/" "$TASKS_FILE"
-    echo "Marked task $2 as completed"
-  else
-    echo "Invalid task number"
-  fi
-  ;;
->>>>>>> feature/update-task
