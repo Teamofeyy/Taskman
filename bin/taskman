@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 TASKS_FILE="${HOME}/.taskman_tasks"
 
 case $1 in
